@@ -239,9 +239,6 @@
                   <li>
                     <a href="#log" class="toc-h2 toc-link" data-title="log">log</a>
                   </li>
-                  <li>
-                    <a href="#list-of-useful-metadata-entries" class="toc-h2 toc-link" data-title="List of Useful Metadata Entries">List of Useful Metadata Entries</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -259,7 +256,69 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#list-of-supported-data-entries" class="toc-h1 toc-link" data-title="List of Supported Data Entries">List of Supported Data Entries</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#d" class="toc-h2 toc-link" data-title="D">D</a>
+                  </li>
+                  <li>
+                    <a href="#mn" class="toc-h2 toc-link" data-title="Mn">Mn</a>
+                  </li>
+                  <li>
+                    <a href="#mw" class="toc-h2 toc-link" data-title="Mw">Mw</a>
+                  </li>
+                  <li>
+                    <a href="#mz" class="toc-h2 toc-link" data-title="Mz">Mz</a>
+                  </li>
+                  <li>
+                    <a href="#dpn" class="toc-h2 toc-link" data-title="DPn">DPn</a>
+                  </li>
+                  <li>
+                    <a href="#dpw" class="toc-h2 toc-link" data-title="DPw">DPw</a>
+                  </li>
+                  <li>
+                    <a href="#dpz" class="toc-h2 toc-link" data-title="DPz">DPz</a>
+                  </li>
+                  <li>
+                    <a href="#skewness" class="toc-h2 toc-link" data-title="skewness">skewness</a>
+                  </li>
+                  <li>
+                    <a href="#kurtosis" class="toc-h2 toc-link" data-title="kurtosis">kurtosis</a>
+                  </li>
+                  <li>
+                    <a href="#mwd" class="toc-h2 toc-link" data-title="MWD">MWD</a>
+                  </li>
+                  <li>
+                    <a href="#gpc" class="toc-h2 toc-link" data-title="GPC">GPC</a>
+                  </li>
+                  <li>
+                    <a href="#comp" class="toc-h2 toc-link" data-title="comp">comp</a>
+                  </li>
+                  <li>
+                    <a href="#comp_diad" class="toc-h2 toc-link" data-title="comp_diad">comp_diad</a>
+                  </li>
+                  <li>
+                    <a href="#comp_higher" class="toc-h2 toc-link" data-title="comp_higher">comp_higher</a>
+                  </li>
+                  <li>
+                    <a href="#tacticity_diad" class="toc-h2 toc-link" data-title="tacticity_diad">tacticity_diad</a>
+                  </li>
+                  <li>
+                    <a href="#tacticity_triad" class="toc-h2 toc-link" data-title="tacticity_triad">tacticity_triad</a>
+                  </li>
+                  <li>
+                    <a href="#tacticity_higher" class="toc-h2 toc-link" data-title="tacticity_higher">tacticity_higher</a>
+                  </li>
+                  <li>
+                    <a href="#msl" class="toc-h2 toc-link" data-title="MSL">MSL</a>
+                  </li>
+                  <li>
+                    <a href="#head_tail_config" class="toc-h2 toc-link" data-title="head_tail_config">head_tail_config</a>
+                  </li>
+                  <li>
+                    <a href="#p" class="toc-h2 toc-link" data-title="p">p</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -368,7 +427,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><a href="#BigSMILES">BigSMILES</a></td>
+<td><a href="#bigsmiles">BigSMILES</a></td>
 <td>string</td>
 <td>The BigSMILES string for the polymer.</td>
 </tr>
@@ -390,7 +449,7 @@
 </tbody></table>
 
 <aside class="notice">It is strongly recommended that these provided entries are incorporated within every data file, because they provide basic information that allows for verification of the data entries for each created polymer, as well as serving as digital trails for document curation purposes.</aside>
-<h3 id='bigsmiles'>BigSMILES</h3>
+<h2 id='bigsmiles'>BigSMILES</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -402,7 +461,7 @@
 <p><strong>Type</strong></p>
 
 <p>string</p>
-<h3 id='id'>id</h3>
+<h2 id='id'>id</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -414,7 +473,7 @@
 <p><strong>Type</strong></p>
 
 <p>string</p>
-<h3 id='src'>src</h3>
+<h2 id='src'>src</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -427,7 +486,7 @@
 <p><strong>Type</strong></p>
 
 <p>array of strings</p>
-<h3 id='log'>log</h3>
+<h2 id='log'>log</h2>
 <blockquote>
 <p>Syntax and usage</p>
 
@@ -478,37 +537,6 @@ a string logging necessary information or message associated with the revision</
 <p>array of <em>log object</em></p>
 
 <aside class="notice">Using names as author identifiers are strongly discouraged, because they are often not unique and difficult to track. Unique identifiers such as ORCID are preferred.</aside>
-<h2 id='list-of-useful-metadata-entries'>List of Useful Metadata Entries</h2>
-<table><thead>
-<tr>
-<th>Entry</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><a href="#BigSMILES">BigSMILES</a></td>
-<td>string</td>
-<td>The BigSMILES string for the polymer.</td>
-</tr>
-<tr>
-<td><a href="#id">id</a></td>
-<td>string</td>
-<td>An identifier for the document to serve as document reference id in database or file systems.</td>
-</tr>
-<tr>
-<td><a href="#src">src</a></td>
-<td>array</td>
-<td>The source of the data. More details <a href="#src">here</a>.</td>
-</tr>
-<tr>
-<td><a href="#log">log</a></td>
-<td>array</td>
-<td>An array that contains the revision log of the document. Click <a href="#log">here</a> for details on the syntax for each log entry.</td>
-</tr>
-</tbody></table>
-
-<p>Please refer to the later sections for detailed specification for each standard entry.</p>
 <h1 id='data-and-the-data-object'>Data and the Data Object</h1>
 <blockquote>
 <p>The data objects are embedded within the main JSON object</p>
@@ -684,7 +712,7 @@ a string logging necessary information or message associated with the revision</
 <p>For more complex examples, please refer to the examples panel.</p>
 
 <aside class="warning">The target and atom_idx entries are required for every data object.</aside>
-<h2 id='measurable-properties'>Measurable Properties</h2><h3 id='list-of-supported-properties'>List of Supported Properties</h3>
+<h2 id='measurable-properties'>Measurable Properties</h2>
 <blockquote>
 <p>Relevant properties can be included within the list of entries in a data object</p>
 </blockquote>
@@ -710,35 +738,31 @@ a string logging necessary information or message associated with the revision</
 </tr>
 </thead><tbody>
 <tr>
-<td><a href="#idx">idx</a></td>
-<td>A string that specifies the exact element that the data object characterizes. Details of the indexing scheme is provided in the following section.</td>
-</tr>
-<tr>
-<td><a href="#D">D</a></td>
+<td><a href="#d">D</a></td>
 <td>Dispersity</td>
 </tr>
 <tr>
-<td><a href="#Mn">Mn</a></td>
+<td><a href="#mn">Mn</a></td>
 <td>Number average molecular weight</td>
 </tr>
 <tr>
-<td><a href="#Mw">Mw</a></td>
+<td><a href="#mw">Mw</a></td>
 <td>Weight average molecular weight</td>
 </tr>
 <tr>
-<td><a href="#Mz">Mz</a></td>
+<td><a href="#mz">Mz</a></td>
 <td>Z average molecular weight</td>
 </tr>
 <tr>
-<td><a href="#DPn">DPn</a></td>
+<td><a href="#dpn">DPn</a></td>
 <td>Number average degree of polymerization</td>
 </tr>
 <tr>
-<td><a href="#DPw">DPw</a></td>
+<td><a href="#dpw">DPw</a></td>
 <td>Weight average degree of polymerization</td>
 </tr>
 <tr>
-<td><a href="#DPz">DPz</a></td>
+<td><a href="#dpz">DPz</a></td>
 <td>Z average degree of polymerization</td>
 </tr>
 <tr>
@@ -750,11 +774,11 @@ a string logging necessary information or message associated with the revision</
 <td>The kurtosis of the molecular weight distribution</td>
 </tr>
 <tr>
-<td><a href="#MWD">MWD</a></td>
+<td><a href="#mwd">MWD</a></td>
 <td>The full molecular weight distribution</td>
 </tr>
 <tr>
-<td><a href="#GPC">GPC</a></td>
+<td><a href="#gpc">GPC</a></td>
 <td>The GPC measurement data for polymer molecular weight distribution</td>
 </tr>
 <tr>
@@ -782,7 +806,7 @@ a string logging necessary information or message associated with the revision</
 <td>The tacticity of a polymeric segment described by higher order multi-ads</td>
 </tr>
 <tr>
-<td><a href="#MSL">MSL</a></td>
+<td><a href="#msl">MSL</a></td>
 <td>The average length of <em>meso</em> sequences within the polymer molecule</td>
 </tr>
 <tr>
@@ -798,7 +822,25 @@ a string logging necessary information or message associated with the revision</
 <aside class="warning">BigSMILES data format is designed specifically for describing the structural features of polymers. Therefore, properties, such as the viscosity, that are not directly relevant to the structure should <b>NOT</b> be included within the data objects.</aside>
 
 <aside class="warning">Unlike the metadata list, incorporating entries not contained within the supported properties list is strongly discouraged to ensure the maximal compatibility. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
-<h3 id='d'>D</h3>
+<h2 id='model-dependent-parameters'>Model Dependent Parameters</h2>
+<blockquote>
+<p>The kinetic object can contain any user defined parameters that are relevant to the specific kinetic model. The only requirement is that the object contain either a description that details the exact definitions of each parameter and how they work with a specific kinetic model, or a reference to another document that contains such information.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">kinetic_obj</span><span class="w"> </span><span class="err">=</span><span class="w"> 
+</span><span class="p">{</span><span class="w">   
+    </span><span class="s2">"src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"source-to-model-description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of the model"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parameter1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parameter2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As discussed earlier, the data object should only explicitly contain properties that are not model dependent. Meanwhile, other parameters, such as the reactive rate constants (which are meaningful only under the context of a certain kinetic model, reaction mechanism and other assumptions), although not objectively quantitative, may also provide means to infer the relative weights of the molecular states in an ensemble. To include these information, the following syntax can be used:</p>
+
+<p><code>&quot;kinetics&quot;: kinetics object</code></p>
+
+<p>However, since each kinetic model is highly specific and often vastly different from other models both in terms of the nature and number of parameters required, standardization for the <strong><em>kinetics object</em></strong> is currently not supported, and the user is free to define and include any parameter as deemed necessary. The only strict requirement is that the kinetics object must contain an entry that either clearly specifies the exact definitions of each parameter and how they work with a specific kinetic model to inform the molecular structures, or provide a reference to another document that details such information.</p>
+<h1 id='list-of-supported-data-entries'>List of Supported Data Entries</h1><h2 id='d'>D</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -846,7 +888,7 @@ a string logging necessary information or message associated with the revision</
 <td>how the value is measured or obtained</td>
 </tr>
 </tbody></table>
-<h3 id='mn'>Mn</h3>
+<h2 id='mn'>Mn</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -901,7 +943,14 @@ a string logging necessary information or message associated with the revision</
 <td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
 </tr>
 </tbody></table>
-<h3 id='mw'>Mw</h3>
+
+<p><strong>Allowed Units</strong></p>
+
+<ul>
+<li>kDa</li>
+<li>Da</li>
+</ul>
+<h2 id='mw'>Mw</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -956,7 +1005,14 @@ a string logging necessary information or message associated with the revision</
 <td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
 </tr>
 </tbody></table>
-<h3 id='mz'>Mz</h3>
+
+<p><strong>Allowed Units</strong></p>
+
+<ul>
+<li><p>kDa</p></li>
+<li><p>Da</p></li>
+</ul>
+<h2 id='mz'>Mz</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1011,7 +1067,14 @@ a string logging necessary information or message associated with the revision</
 <td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
 </tr>
 </tbody></table>
-<h3 id='dpn'>DPn</h3>
+
+<p><strong>Allowed Units</strong></p>
+
+<ul>
+<li><p>kDa</p></li>
+<li><p>Da</p></li>
+</ul>
+<h2 id='dpn'>DPn</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1061,7 +1124,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-<h3 id='dpw'>DPw</h3>
+<h2 id='dpw'>DPw</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1111,7 +1174,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-<h3 id='dpz'>DPz</h3>
+<h2 id='dpz'>DPz</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1161,7 +1224,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-<h3 id='skewness'>skewness</h3>
+<h2 id='skewness'>skewness</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1209,7 +1272,7 @@ a string logging necessary information or message associated with the revision</
 <td>how the value is measured or obtained</td>
 </tr>
 </tbody></table>
-<h3 id='kurtosis'>kurtosis</h3>
+<h2 id='kurtosis'>kurtosis</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1257,7 +1320,7 @@ a string logging necessary information or message associated with the revision</
 <td>how the value is measured or obtained</td>
 </tr>
 </tbody></table>
-<h3 id='mwd'>MWD</h3>
+<h2 id='mwd'>MWD</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1319,7 +1382,14 @@ a string logging necessary information or message associated with the revision</
 <td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
 </tr>
 </tbody></table>
-<h3 id='gpc'>GPC</h3>
+
+<p><strong>Allowed Units</strong></p>
+
+<ul>
+<li>kDa</li>
+<li>Da</li>
+</ul>
+<h2 id='gpc'>GPC</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1395,7 +1465,14 @@ a string logging necessary information or message associated with the revision</
 <td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
 </tr>
 </tbody></table>
-<h3 id='comp'>comp</h3>
+
+<p><strong>Allowed Units for unit_t</strong></p>
+
+<ul>
+<li>s (seconds)</li>
+<li>m (minutes)</li>
+</ul>
+<h2 id='comp'>comp</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1452,7 +1529,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='comp_diad'>comp_diad</h3>
+<h2 id='comp_diad'>comp_diad</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1509,7 +1586,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='comp_higher'>comp_higher</h3>
+<h2 id='comp_higher'>comp_higher</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1572,7 +1649,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='tacticity_diad'>tacticity_diad</h3>
+<h2 id='tacticity_diad'>tacticity_diad</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1629,7 +1706,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The two ratios should sum up to one.</aside>
-<h3 id='tacticity_triad'>tacticity_triad</h3>
+<h2 id='tacticity_triad'>tacticity_triad</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1686,7 +1763,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='tacticity_higher'>tacticity_higher</h3>
+<h2 id='tacticity_higher'>tacticity_higher</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1749,7 +1826,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='msl'>MSL</h3>
+<h2 id='msl'>MSL</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1797,7 +1874,7 @@ a string logging necessary information or message associated with the revision</
 <td>how the value is measured or obtained</td>
 </tr>
 </tbody></table>
-<h3 id='head_tail_config'>head_tail_config</h3>
+<h2 id='head_tail_config'>head_tail_config</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1854,7 +1931,7 @@ a string logging necessary information or message associated with the revision</
 </tbody></table>
 
 <aside class="notice">The ratios should sum up to one.</aside>
-<h3 id='p'>p</h3>
+<h2 id='p'>p</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1900,82 +1977,6 @@ a string logging necessary information or message associated with the revision</
 <td>string</td>
 <td>optional</td>
 <td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-<h2 id='model-dependent-parameters'>Model Dependent Parameters</h2>
-<blockquote>
-<p>The kinetic object can contain any user defined parameters that are relevant to the specific kinetic model. The only requirement is that the object contain either a description that details the exact definitions of each parameter and how they work with a specific kinetic model, or a reference to another document that contains such information.</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="err">kinetic_obj</span><span class="w"> </span><span class="err">=</span><span class="w"> 
-</span><span class="p">{</span><span class="w">   
-    </span><span class="s2">"src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"source-to-model-description"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"desc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of the model"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"parameter1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"parameter2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="p">,</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>As discussed earlier, the data object should only explicitly contain properties that are not model dependent. Meanwhile, other parameters, such as the reactive rate constants (which are meaningful only under the context of a certain kinetic model, reaction mechanism and other assumptions), although not objectively quantitative, may also provide means to infer the relative weights of the molecular states in an ensemble. To include these information, the following syntax can be used:</p>
-
-<p><code>&quot;kinetics&quot;: kinetics object</code></p>
-
-<p>However, since each kinetic model is highly specific and often vastly different from other models both in terms of the nature and number of parameters required, standardization for the <strong><em>kinetics object</em></strong> is currently not supported, and the user is free to define and include any parameter as deemed necessary. The only strict requirement is that the kinetics object must contain an entry that either clearly specifies the exact definitions of each parameter and how they work with a specific kinetic model to inform the molecular structures, or provide a reference to another document that details such information.</p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
