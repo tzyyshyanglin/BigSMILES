@@ -264,9 +264,20 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#version-history" class="toc-h1 toc-link" data-title="Version History">Version History</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#version-1-1" class="toc-h2 toc-link" data-title="version-1.1">version-1.1</a>
+                  </li>
+                  <li>
+                    <a href="#version-1-0" class="toc-h2 toc-link" data-title="version-1.0">version-1.0</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>BigSMILES Project</a></li>
+            <li><a href='index.html'>BigSMILES Project</a></li>
             <li><a href='line_notation.html'>BigSMILES Line Notation</a></li>
             <li><a href='DataFormat.html'>BigSMILES Data Format</a></li>
             <li><a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a></li>
@@ -287,7 +298,7 @@
 
 <aside class="notice">
 Please note that the BigSMILES line notation continually revised to provide additional features and important bug fixes. This page hosts the latest version of BigSMILES, which may differ from the syntax discussed in the <a href="https://pubs.acs.org/doi/10.1021/acscentsci.9b00476">original paper</a>. <br/>
-The current version is v1.1. Please check the <a href="#">version history</a> for the log of detailed changes.
+The current version is v1.1. Please check the <a href="#version-history">version history</a> for the detailed log of changes.
 </aside>
 
 <p>This article is meant as an documentation for the BigSMILES syntax. The reader is assumed to be familiar with the SMILES syntax. If you are not familiar with the syntax of SMILES, this Daylight CIS <a href="https://daylight.com/dayhtml/doc/theory/theory.smiles.html">page</a> provides a great introduction to the subject.</p>
@@ -1019,6 +1030,34 @@ c7([&lt;])cc([#L]8)cc([#L]9)c7.C%10([&lt;])cc([#L]%11)cc([#L]%12)c%10.
 <p>although there is no explicit reference to any cycle, since a ring polymer is also a valid outcome of the connectivity pattern, the molecular ensemble would implicitly include both the uncapped linear fragments and also ring polymers without any open ends. This is meant to reflect the potential ring-chain formation competition that naturally occurs during polymerization. </p>
 <h3 id='random-cycles'>Random Cycles</h3>
 <p>For stochastic objects representing branching polymers, products with random cyclization are also included within the ensemble of possible structures. This looping structure is currently not explicitly presented within the BigSMILES representation, because each cycle requires indexing in the SMILES language, and it is impossible to fully track such random cyclization explicitly. Rather, the possibility of this type of random macrocycle formation is implicitly included through expressing the rules of connectivity that allow for the enumeration of these macrocycles.</p>
+<h1 id='version-history'>Version History</h1><h2 id='version-1-1'>version-1.1</h2><h3 id='date'>Date</h3>
+<p>November 11, 2019</p>
+<h3 id='major-updates'>Major Updates</h3>
+<p>Made changes to the bonding descriptor syntax:</p>
+
+<ol>
+<li>Changed bonding descriptor from <code>descriptor_type + bond_type + descriptor_id</code> to <code>&#39;[&#39; + descriptor_type +  descriptor_id  +  &#39;]&#39;</code> and moves bonding symbol out of the descriptors
+
+<ul>
+<li>Made descriptors completely identical to atoms in terms of syntax</li>
+<li>Resolve incompatibility with SMILES quadruple bonds <code>$</code></li>
+<li>Resolve potential conflict with reaction SMILES <code>&gt;</code></li>
+</ul></li>
+<li><p>Changed ladder bonding descriptor syntax: added <code>group_id</code> </p>
+
+<ul>
+<li>Original syntax may lead to ambiguous semantics</li>
+</ul></li>
+<li><p>Changed terminal bonding descriptor syntax</p></li>
+</ol>
+
+<ul>
+<li>To eliminate ambiguity, the terminal bonding descriptors are always required, even if it is empty </li>
+</ul>
+<h2 id='version-1-0'>version-1.0</h2><h3 id='date-2'>Date</h3>
+<p>September 12, 2019</p>
+<h3 id='major-update'>Major Update</h3>
+<p>BigSMILES line notation published on <a href="https://pubs.acs.org/doi/10.1021/acscentsci.9b00476">ACS Central Science</a></p>
 
       </div>
       <div class="dark-box">

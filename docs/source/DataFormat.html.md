@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json: BigSMILES Data
 
 toc_footers:
-  - <a href='#'>BigSMILES Project</a>
+  - <a href='index.html'>BigSMILES Project</a>
   - <a href='line_notation.html'>BigSMILES Line Notation</a>
   - <a href='DataFormat.html'>BigSMILES Data Format</a>
   - <a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a>
@@ -18,7 +18,7 @@ search: true
 
 # Introduction
 
-The [BigSMILES line notation](./BigSMILES_LineNotation.md) provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. 
+The [BigSMILES line notation](line_notation.html) provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. 
 
 This document provides the official documentation of the BigSMILES data format, a data standard that accompanies the BigSMILES line notation. 
 
@@ -56,26 +56,26 @@ This document provides the official documentation of the BigSMILES data format, 
 
 	"data" : [
               {
-               "target":"{[$]$CC$,$CC(C)$[$]}",
-               "atom_idx" :[3,4,5,6,7],
-               "Mn" : {"value":4.4,
+               "target":"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]",
+               "source" :"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]",
+               "Mn" : [{"value":4.4,
                        "unit":"kDa",
                        "uncertainty":0.5,
                        "uncertainty_src":"multiple samples from the same batch",
-                       "method": "GPC" },
-               "D" : {"value": 1.1, 
+                       "method": "GPC" }],
+               "D" : [{"value": 1.1, 
                       "uncertainty": 0.1, 
-                      "uncertainty_src": "uncertainty in GPC calibration"} 
+                      "uncertainty_src": "uncertainty in GPC calibration"}]
               },
               {
-               "target":"{[<]>OCC<[>]}O",
-               "atom_idx" :[8,9,10,11],
-               "Mw" : {"value":10,
+               "target":"{[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[OH:/8]",
+               "source" :"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]",
+               "Mw" : [{"value":10,
                        "unit":"kDa",
                        "uncertainty":0.5,
                        "uncertainty_src":"multiple samples from the same batch",
-                       "method": "GPC" },
-               "D" : {"value": 1.5} 
+                       "method": "GPC" }],
+               "D" : [{"value": 1.5}] 
               } 
     		 ]
 }
@@ -88,7 +88,6 @@ In JSON, multiple name-value pairs are saved in a comma-delimited list. Unless o
 An illustrative BigSMILES data JSON file example is shown in the code block. In the rest of the document, a JSON file/object that describes a single polymer is referred to as the ***main JSON object***.
 
 <aside class="success">Remember — Each BigSMILES JSON file contains data and characterization for exactly one polymer. Multiple polymers that appear within one literature should be encoded within separate files. </aside>
-
 In BigSMILES data format, relevant data is stored within different entries according to their nature. On the highest level, data are classified into two major different categories:
 
 - **metadata** associated with the data file itself, such as the document identifier, the source of the data, or other information relevant to the maintenance of the data file itself, and
@@ -97,7 +96,6 @@ In BigSMILES data format, relevant data is stored within different entries accor
 where the name-value pairs of the metadata, such as the BigSMILES string of the polymer, the author, the document identifier, etc., are directly stored on the top level of the JSON file (more details on the definition of some standard metadata entries will be provided shortly), and the physicochemical properties relevant to the characterization of the chemical structure are encapsulated and compiled within the "data" entry. 
 
 <aside class="notice">The order of which each individual entry appears does not matter; as long as each entry is denoted by a comma-delimited list of name (specified by a string within quotation marks) and value pairs separated by colons, they are considered equally valid.</aside>
-
 # Metadata 
 
 > The metadata section of a BigSMILES data file has the following format
@@ -227,7 +225,6 @@ array of *log object*
 
 <aside class="notice">Using names as author identifiers are strongly discouraged, because they are often not unique and difficult to track. Unique identifiers such as ORCID are preferred.</aside>
 
-
 # Data and the Data Object
 
 > The data objects are embedded within the main JSON object
@@ -248,33 +245,38 @@ array of *log object*
 
 ```json
 {
-    "target":"{[$]$CC$,$CC(C)$[$]}",
-    "atom_idx" :[3,4,5,6,7],
-    "Mn" : {"value":4.4,
+    "target":"{...}",
+    "source":"{...}",
+    "Mn" : [{"value":4.4,
             "unit":"kDa",
             "uncertainty":0.5,
             "uncertainty_src":"multiple samples from the same batch",
-            "method": "GPC" },
-    "D" : {"value": 1.1, 
+            "method": "GPC" }],
+    "D" : [{"value": 1.1, 
            "uncertainty": 0.1, 
-           "uncertainty_src": "uncertainty in GPC calibration"} ,
-	"kinetics" : {"parameter1":"value1", "description": "description-text"}
+           "uncertainty_src": "uncertainty in GPC calibration"}] ,
+	"kinetics" : [{"parameter1":"value1", "description": "description-text"}]
 }
 ```
 
-> The "target" and "atom_idx" entries are always required, whereas other entries related to properties are included depending on availability.  Note that although only two properties (number average molecular weight and dispersity) are included in the example, in general, all relevant properties should be included. 
+> The "target" and "source" entries are always required, whereas other entries related to properties are included depending on availability.  Note that although only two properties (number average molecular weight and dispersity) are included in the example, in general, all relevant properties should be included. 
 
 In the BigSMILES data format, the data associated with the molecular structures of the polymers are encapsulated within the "data" entry with an array of ***data objects*** in the following syntax
 
 `"data" : [data_obj1, data_obj2, data_obj3,...]`
 
-and placed within the major JSON object, as illustrated in the example. Each data object corresponds to a single segment of the polymer or a polymeric precursor related to the polymer of interest, and encapsulates the information on properties or parameters relevant to the characterization of the weights of each molecular state within the ensemble. The syntax for the data object is illustrated in the example panel.
+and placed within the major JSON object, as illustrated in the example. Each data object corresponds to a set of characterization data of the polymer of interest or a precursor related to the logged polymer. The data object encapsulates properties and parameters that are relevant to the determination of the distribution of different molecular states within the ensemble given by the line notation. The syntax for the data object is illustrated in the example panel.
 
 
 
 Each data object is consisted of the following three types of entries:
 
-1. indexing entries (the "target" and "atom_idx" entries) that specify the structure of the polymer segment or precursor on which the physicochemical measurements are actually performed, and how they are related to the polymer of interest
+1. indexing entries (the "target" and "source" entries) 
+   * target:  
+     the labelled BigSMILES string of the polymer segment or precursor on which the physicochemical measurements are actually performed
+   * source:  
+     the labelled BigSMILES string of the original polymer (the one specified in the "BigSMILES" entry). 
+   * source and target should be labelled consistently such that the corresponding atoms on the two BigSMILES strings have the identical index
 2. measurable properties that provide characterization of the chemical structure of the polymer, such as number average molecular weight, dispersity, ... etc.
 3. properties or parameters that provide information that could be used to infer the chemical structure of a polymer, but are model dependent and become meaningless outside of the context of a specific physicochemical model
 
@@ -283,130 +285,53 @@ The entries in the first two categories are directly listed within the data obje
 <aside class="notice">Remember - The order of the entries do not matter!</aside>
 ## Indexing a Polymeric Segment
 
-> For each data object, the "target" and "atom_idx" entries must be included
+> For each data object, the "target" and "source" entries must be included
 
 ```json
 data_obj = 
 {	
-	"target" : "{[<]>OCC<[>]}Br",
-	"atom_idx" : [1,2,3,null],
-	"Mn" : 	{"value":4.4, ...},
-    "D" : 	{"value": 1.1, ...},
-	"kinetics" : {...}
+	"target" : "[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]",
+	"source" : "[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]",
+	"Mn" : 	[{"value":4.4, ...}],
+    "D" : 	[{"value": 1.1, ...}],
+	"kinetics" : [{...}]
 }
 ```
 
-> To illustrate the indexing scheme, consider the following examples.
+> As detailed within the specification, any scheme that satisfy the requirements could be used to provide labelling of the target and source polymers. 
 >
-> First, consider the a diblock copolymer formed via iodoacetyl sulfhydryl conjugation 
+> For instance, the following example describes a target polymer of amine functionalized polyethylene and a source polymer with ethyl end groups instead of the amine end:
 
 ```json
-"BigSMILES" : "{[>]<OCC>[<]}NC(=O)CS{[$]$C(c1ccccc1)C$[$]}"
+"target" : "[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]",
+"source" : "[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]"
 ```
 
-> To specify characterization on the PEG precursor, the following entries could be used
-
-```json
-"target" : 	"{[>]<OCC>[<]}NC(=O)CI"
-"atom_idx": [1,2,3,4,5,6,7,null]
-```
-
-> for the polystyrene precursor, similar encoding applies
-
-```json
-"target" : 	"{[$]$CC(c1ccccc1)$[$]}S"
-"atom_idx": [16,9,10,11,12,13,14,15,8]
-```
-
-> Next, consider a polycysteine grafted with iodoacetyl terminated PEG 
-
-```json
-"BigSMILES" : "{[>]<NC(CS)C(=O)>,<NC(CSCC(=O)N{[>]<CCO>[<]})C(=O)>[<]}O"
-```
-
-> To characterize the entire polymer, the BigSMILES string can be directly used in the target entry
-
-```json
-"target" : 	"{[>]<NC(CS)C(=O6)>,<NC(CSCC(=O)N14{[>]<CCO>[<]})C(=O)>[<]}O"
-"atom_idx": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-```
-
-> Characterization of the grafts would require the specification of iodoacetyl terminated PEGs
-
-```json
-"target" : 	"ICC(=O)N{[>]<CCO>[<]}"
-"atom_idx": [null,11,12,13,14,15,16,17]
-```
-
-> If the backbone was characterized prior to grafting, the characterization for the polypeptide would require the following indexing
-
-```json
-"target" : 	"{[>]<NC(CS)C(=O6)>[<]}O"
-"atom_idx": [[1,7],[2,8],[3,9],[4,10],[5,18],[6,19],20]
-```
-
-> Note that in this case some of the atoms on the precursor peptide polymer correspond to more than one atoms on the graft polymer, therefore the corresponding elements contain an array of multiple indices instead of one index.
-
-In each data object, the exact element or component of the polymer that the properties are associated with is given by the ***target*** and ***atom_idx*** entries. 
+In each data object, the exact element or component of the polymer that the properties are associated with is given by the `target` and `source` entries. 
 
 | Entry Name | Type   | Description                                                  |
 | ---------- | ------ | ------------------------------------------------------------ |
-| target     | string | The BigSMILES string for the polymer/molecule that characterizations are actually performed on. |
-| atom_idx   | array  | The map between the atoms on the target polymer and the polymer described by the overall data file. |
+| target     | string | The labelled BigSMILES string of the polymer segment or precursor on which the physicochemical measurements are actually performed |
+| source     | array  | The labelled BigSMILES string of the original polymer (the one specified in the "BigSMILES" entry). |
 
 In principle, the BigSMILES data format is designed to store quantifications obtained directly from experimental measurements. The "target" entry is designed to contain the BigSMILES string of the exact polymer molecule that the measurements are performed on. 
-
-
-
-In the case that all relevant characterizations are performed on the polymer of interest (the polymer with which the data file is associated), the target entry should be identical to the "BigSMILES" entry in the metadata section.
 
 
 
 However, for polymers, it is common that characterizations are performed on precursors or polymers that are not exactly identical to the actual polymer of interest. This is especially common for polymers that undergo post-characterization functionalization, or polymers segments that have been grafted or tethered to other polymer segments. In these cases, the target polymer would not be the same as the polymer of interest, and may contain parts or atoms that could not necessarily be found in the polymer of interest.
 
 <aside class="notice">In this case, the the BigSMILES string within the target field would not be substrings of the original BigSMILES string.</aside>
-Meanwhile, to unambiguously specify which of the atom(s) on the polymer of interest do each atom on the target polymer correspond to, a map between the atoms on the target polymer and the atoms on the polymer of interest must be provided. This is encapsulated within the "atom_idx" entry, which is an array that has the same number of elements as the number of atoms (number of explicit atom symbols) in the target string. 
+To unambiguously specify which of the atom(s) on the polymer of interest do each atom on the target polymer correspond to, a map between the atoms on the target polymer and the atoms on the polymer of interest (the source polymer) must be provided. The mapping is provided by labelling the BigSMILES string of the target polymer and the BigSMILES string of the original polymer. 
 
-Within the atom_idx array, the *n*th element corresponds to the *n*th atom within the target string. (The labelling goes from left to right, with the leftmost atom being the 1st atom, the next one the 2nd, and so on.) The element within the array contains the numeric indices of the atom(s) (labelled in the same way) in the original polymer of interest that the *n*th atom in the target polymer corresponds to. 
+For the purpose of the data standard, any labelling scheme could be used as long as the labelling scheme satisfies the following criteria:
 
+1. For a BigSMILES string, each atom and bonding descriptor should be assigned an unique string label. 
+2. For any atom on the target polymer that has correspondence on the source polymer, the label for the atom on target should be identical to the label of the corresponding atom on source 
+3. For any atom on the target polymer that does not have a corresponding atom on the source polymer, the label for such atom should not match any label on the source polymer
 
-
-For example, consider a file that were to describe an azide-functionalized poly(ethylene glycol). Its BigSMILES string reads
-
-`"BigSMILES" : "{[<]>OCC<[>]}N=[N+]=[N-]"`
-
-The numeric label for each atom would be: (leftmost) O = 1, (left) C = 2, (right) C = 3 and 4, 5, 6 for the three nitrogen atoms.
-
-
-
-Now, consider the scenario where the characterization of the PEG were all performed on the precursor bromide terminated PEG without end functionalization, then the target field would be
-
-`"target" : "{[<]>OCC<[>]}Br"`
-
-In this case, the first oxygen atom corresponds to the first atom in the polymer of interest; therefore, the first element for the atom_idx array would be 1. Likewise, the second and third elements are 2 and 3 respectively. The last element, which corresponds to the bromine atom, do not correspond to any of the atom found within the azide functionalized PEG. Therefore, the element would be *null*. Therefore, the atom_idx array for this precursor reads
-
-`"atom_idx": [1,2,3,null]`
-
-If the target string would be written in the reversed order
-
-`"target" : "Br{[<]>CCO<[>]}"`
-
-then the array would be changed accordingly to
-
-`"atom_idx": [null,3,2,1]`
-
-In some cases, if an atom on a target polymer corresponds to more than one atom, the corresponding element in the array should be replaced by an array with the indices of all the relevant atoms.
-
-`"atom_idx": [...,1,null,2,[3,5],4,...]`
-
-This can often be found on polymers that undergo post-characterization functionalization, as illustrated in the second example.
-
-
-
-For more complex examples, please refer to the examples panel.
+For BigSMILES users, a tool with graphical interface that could consistently generate valid labels can be found [here](https://olsenlabmit.github.io/BigSMILES_builder/).
 
 <aside class="warning">The target and atom_idx entries are required for every data object.</aside>
-
 ## Measurable Properties
 
 > Relevant properties can be included within the list of entries in a data object
@@ -414,11 +339,11 @@ For more complex examples, please refer to the examples panel.
 ```json
 data_obj = 
 {	
-	"target" : "{[<]>OCC<[>]}Br",
-	"atom_idx" : [1,2,3,null],
-	"Mn" : 	{"value":4.4, ...},
-    "D" : 	{"value": 1.1, ...},
-	"kinetics" : {...}
+	"target" : "...",
+	"source" : "...",
+	"Mn" : 	[{"value":4.4, ...}],
+    "D" : 	[{"value": 1.1, ...}],
+	"kinetics" : [{...}]
 }
 ```
 
@@ -426,33 +351,28 @@ data_obj =
 
 
 
-Within the data object, each measured property is stored within a separate entry. For each property, the parameters required within the corresponding JSON object is slightly different. Please click on the name of the property in the table to view the detailed syntax. 
+Characterization on measurable properties are logged under the corresponding array within the data object. For each measurable property, the set of required and optional fields are slightly different. Please click on the name of the property in the table to view the exact syntax.
 
-| Property                              | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| [D](#d)                               | Dispersity                                                   |
-| [Mn](#mn)                             | Number average molecular weight                              |
-| [Mw](#mw)                             | Weight average molecular weight                              |
-| [Mz](#mz)                             | Z average molecular weight                                   |
-| [DPn](#dpn)                           | Number average degree of polymerization                      |
-| [DPw](#dpw)                           | Weight average degree of polymerization                      |
-| [DPz](#dpz)                           | Z average degree of polymerization                           |
-| [skewness](#skewness)                 | The skewness of the molecular weight distribution            |
-| [kurtosis](#kurtosis)                 | The kurtosis of the molecular weight distribution            |
-| [MWD](#mwd)                           | The full molecular weight distribution                       |
-| [GPC](#gpc)                           | The GPC measurement data for polymer molecular weight distribution |
-| [comp](#comp)                         | The composition of a polymer characterized by the ratio of different repeat units. |
-| [comp_diad](#comp_diad)               | The composition of a polymer characterized by the ratio of different repeat unit diads. |
-| [comp_higher](#comp_higher)           | The composition of a polymer characterized by the ratio of different repeat unit multi-ads. |
-| [tacticity_diad](#tacticity_diad)     | The tacticity of a polymeric segment described by diads      |
-| [tacticity_triad](#tacticity_triad)   | The tacticity of a polymeric segment described by triads     |
-| [tacticity_higher](#tacticity_higher) | The tacticity of a polymeric segment described by higher order multi-ads |
-| [MSL](#msl)                           | The average length of *meso* sequences within the polymer molecule |
-| [head_tail_config](#head_tail_config) | The head/tail configuration of asymmetric repeating units within a polymeric segment described by triads. |
-| [p](#p)                               | The extent of reaction                                       |
+<aside class="warning">Currently, properties such as tacticity, head-to-tail configuration and composition are not supported. These are actively under development and should be available soon.</aside>
+
+| Property              | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| [D](#d)               | Dispersity                                                   |
+| [Mn](#mn)             | Number average molecular weight                              |
+| [Mw](#mw)             | Weight average molecular weight                              |
+| [Mz](#mz)             | Z average molecular weight                                   |
+| [DPn](#dpn)           | Number average degree of polymerization                      |
+| [DPw](#dpw)           | Weight average degree of polymerization                      |
+| [DPz](#dpz)           | Z average degree of polymerization                           |
+| [skewness](#skewness) | The skewness of the molecular weight distribution            |
+| [kurtosis](#kurtosis) | The kurtosis of the molecular weight distribution            |
+| [MWD](#mwd)           | The full molecular weight distribution                       |
+| [GPC](#gpc)           | The GPC measurement data for polymer molecular weight distribution |
+| [p](#p)               | The extent of reaction                                       |
 
 <aside class="warning">BigSMILES data format is designed specifically for describing the structural features of polymers. Therefore, properties, such as the viscosity, that are not directly relevant to the structure should <b>NOT</b> be included within the data objects.</aside>
-<aside class="warning">Unlike the metadata list, incorporating entries not contained within the supported properties list is strongly discouraged to ensure the maximal compatibility. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
+<aside class="warning">Unlike the metadata list, to ensure maximal compatibility, incorporating entries not contained within the supported properties list is strongly discouraged. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
+
 ## Model Dependent Parameters
 
 > The kinetic object can contain any user defined parameters that are relevant to the specific kinetic model. The only requirement is that the object contain either a description that details the exact definitions of each parameter and how they work with a specific kinetic model, or a reference to another document that contains such information.
@@ -479,6 +399,16 @@ However, since each kinetic model is highly specific and often vastly different 
 
 
 # List of Supported Data Entries
+
+## Common fields
+
+For every property, the following fields are always included. Therefore, they will not be repeated in later sections.
+
+**Object Fields**
+
+| Name | Type   | Option   | Description                             |
+| ---- | ------ | -------- | --------------------------------------- |
+| src  | string | optional | the source of the data within the entry |
 
 ## D
 
@@ -808,233 +738,6 @@ The GPC measurement data for polymer molecular weight distribution
 
 
 
-## comp
-
-> Syntax and usage
-
-```json
-"comp" : {
-    "seq" 	: ["A","B",["C","D"]],
-    "ratio" : [0.5,0.3,0.2],
-    "uncertainty" : [0.1,0.1,0.01],
-    "uncertainty_src" : "error source",
-    "method" : "some method"
-}
-```
-
-The composition of a polymer characterized by the ratio of different repeat units.
-
-**Object Fields**
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different repeating unit sequences. For stochastic object with *n* repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with three repeat units should be described by the array \["A", "B", "C"] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [["A","B","C"],"D"]<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
-## comp_diad
-
-> Syntax and usage
-
-```json
-"comp_diad" : {
-    "seq" 	: ["AA","AB","BB"],
-    "ratio" : [0.5,0.3,0.2],
-    "uncertainty" : [0.1,0.1,0.01],
-    "uncertainty_src" : "error source",
-    "method" : "some method"
-}
-```
-
-The composition of a polymer characterized by the ratio of different diads of repeat units.
-
-**Object Fields**
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different repeating unit diad sequences. For stochastic object with *n* repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with three repeat units should be described by the array \["AA", "AB", "AC", ...] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [["AA","AB"],"BB"]<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
-## comp_higher
-
-> Syntax and usage
-
-```json
-"comp_higher_3" : {
-    "seq" 	: ["AAA","AAB","ABB",...],
-    "ratio" : [0.5,0.3,0.1,...],
-    "uncertainty" : [0.1,0.1,0.05,...],
-    "uncertainty_src" : "error source",
-    "method" : "some method"
-}
-```
-
-The composition of a polymer characterized by the ratio of different multi-ads of repeat units.
-
-The name of the property follows the syntax
-
-`"comp_higher_n" : {...}`
-
-where *n* is an integer larger than 2 that specifies the exact order of the multi-ads.
-
-**Object Fields**
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different repeating unit multi-ad sequences. For stochastic object with *n* repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with two repeat units and n=3 should be described by the array \["AAA", "AAB", ...] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
-## tacticity_diad
-
-> Syntax and usage
-
-```json
-"tacticity_diad" : {
-    "r" : 0.5,
-    "m" : 0.5,
-    "uncertainty" : 0.1,
-    "uncertainty_src" : "multiple samples from the same batch",
-    "method" : "some method"
-}
-```
-
-The tacticity of a polymeric segment described by diads  
-
-**Object Fields**
-
-| Name            | Type   | Option   | Description                                                  |
-| --------------- | ------ | -------- | ------------------------------------------------------------ |
-| r               | number | required | the ratio of racemic diads                                   |
-| m               | number | required | the ratio of racemic diads                                   |
-| uncertainty     | number | optional | the uncertainty of the provided value.                       |
-| uncertainty_src | string | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The two ratios should sum up to one.</aside>
-## tacticity_triad
-
-> Syntax and usage
-
-```json
-"tacticity_triad" : {
-    "seq" 	: [["rr","mm"],"rm"],
-    "ratio" : [0.3,0.7],
-    "uncertainty" : [0.1,0.1],
-    "uncertainty_src" : "error source,
-    "method" : "some method"
-}
-```
-
-The tacticity of a polymeric segment described by triads  
-
-**Object Fields****
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different triads. permitted entries include "rm" (heterotactic triads), "mm" (isotactic triads) and "rr" (syndiotactic triads)<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [["rr","mm"],"rm"]<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
-## tacticity_higher
-
-> Syntax and usage
-
-```json
-"tacticity_higher_4" : {
-    "seq" 	: ["rrr","mrm","rrm",...],
-    "ratio" : [0.3,0.2,0.3,...],
-    "uncertainty" : [0.1,0.1,0.1,...],
-    "uncertainty_src" : "error source,
-    "method" : "some method"
-}
-```
-
-The tacticity of a polymeric segment described by multi-ads
-
-The name of the property follows the syntax
-
-`"tacticity_higher_n" : {...}`
-
-where *n* is an integer larger than 3 that specifies the exact order of the multi-ads.
-
-**Object Fields****
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different multi-ads. For instance, pentads include elements such as "mmmm","mrrm", ... etc.<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
-## MSL
-
-> Syntax and usage
-
-```json
-"MSL" : {
-    "value" : 3,
-    "uncertainty" : 0.5,
-    "uncertainty_src" : "error source",
-    "method" : "some method"
-}
-```
-
-The average length of *meso* sequences within the polymer molecule  
-
-**Object Fields**
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| value           | number          | required | the MSL value                                                |
-| uncertainty     | array of number | optional | the uncertainty of the provided ratios.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-
-
-## head_tail_config
-
-> Syntax and usage
-
-```json
-"head_tail_config" : {
-    "seq" 	: [["tt","hh"],"ht"],
-    "ratio" : [0.1,0.9],
-    "uncertainty" : [0.05,0.05],
-    "uncertainty_src" : "error source,
-    "method" : "some method"
-}
-```
-
-The head/tail configuration of asymmetric repeating units within a polymeric segment described by diads
-
-**Object Fields****
-
-| Name            | Type            | Option   | Description                                                  |
-| --------------- | --------------- | -------- | ------------------------------------------------------------ |
-| seq             | array           | required | the array containing different head/tail placements. permitted entries include "ht" (head-to-tail), "hh" (head-to-head) and "tt" (tail-to-tail)<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [["tt","hh"],"ht"]<br />The characterization for missing repeat units is assumed to be unknown. |
-| ratio           | array of number | required | the ratio of different elements in the seq array.            |
-| uncertainty     | array of number | optional | the uncertainty of the provided values.                      |
-| uncertainty_src | string          | optional | an explanation of what the provided uncertainty reflect and how the number/estimation is obtained |
-| method          | string          | optional | how the value is measured or obtained                        |
-
-<aside class="notice">The ratios should sum up to one.</aside>
 ## p
 
 > Syntax and usage

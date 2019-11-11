@@ -259,6 +259,9 @@
             <a href="#list-of-supported-data-entries" class="toc-h1 toc-link" data-title="List of Supported Data Entries">List of Supported Data Entries</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#common-fields" class="toc-h2 toc-link" data-title="Common fields">Common fields</a>
+                  </li>
+                  <li>
                     <a href="#d" class="toc-h2 toc-link" data-title="D">D</a>
                   </li>
                   <li>
@@ -292,37 +295,13 @@
                     <a href="#gpc" class="toc-h2 toc-link" data-title="GPC">GPC</a>
                   </li>
                   <li>
-                    <a href="#comp" class="toc-h2 toc-link" data-title="comp">comp</a>
-                  </li>
-                  <li>
-                    <a href="#comp_diad" class="toc-h2 toc-link" data-title="comp_diad">comp_diad</a>
-                  </li>
-                  <li>
-                    <a href="#comp_higher" class="toc-h2 toc-link" data-title="comp_higher">comp_higher</a>
-                  </li>
-                  <li>
-                    <a href="#tacticity_diad" class="toc-h2 toc-link" data-title="tacticity_diad">tacticity_diad</a>
-                  </li>
-                  <li>
-                    <a href="#tacticity_triad" class="toc-h2 toc-link" data-title="tacticity_triad">tacticity_triad</a>
-                  </li>
-                  <li>
-                    <a href="#tacticity_higher" class="toc-h2 toc-link" data-title="tacticity_higher">tacticity_higher</a>
-                  </li>
-                  <li>
-                    <a href="#msl" class="toc-h2 toc-link" data-title="MSL">MSL</a>
-                  </li>
-                  <li>
-                    <a href="#head_tail_config" class="toc-h2 toc-link" data-title="head_tail_config">head_tail_config</a>
-                  </li>
-                  <li>
                     <a href="#p" class="toc-h2 toc-link" data-title="p">p</a>
                   </li>
               </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>BigSMILES Project</a></li>
+            <li><a href='index.html'>BigSMILES Project</a></li>
             <li><a href='line_notation.html'>BigSMILES Line Notation</a></li>
             <li><a href='DataFormat.html'>BigSMILES Data Format</a></li>
             <li><a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a></li>
@@ -333,7 +312,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>The <a href="./BigSMILES_LineNotation.md">BigSMILES line notation</a> provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. </p>
+<p>The <a href="line_notation.html">BigSMILES line notation</a> provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. </p>
 
 <p>This document provides the official documentation of the BigSMILES data format, a data standard that accompanies the BigSMILES line notation. </p>
 
@@ -366,26 +345,26 @@
 
     </span><span class="s2">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
               </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"{[$]$CC$,$CC(C)$[$]}"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"atom_idx"</span><span class="w"> </span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
-               </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"source"</span><span class="w"> </span><span class="p">:</span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"unit"</span><span class="p">:</span><span class="s2">"kDa"</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"uncertainty"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="s2">"multiple samples from the same batch"</span><span class="p">,</span><span class="w">
-                       </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">},</span><span class="w">
-               </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> 
+                       </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">}],</span><span class="w">
+               </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> 
                       </span><span class="s2">"uncertainty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> 
-                      </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncertainty in GPC calibration"</span><span class="p">}</span><span class="w"> 
+                      </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncertainty in GPC calibration"</span><span class="p">}]</span><span class="w">
               </span><span class="p">},</span><span class="w">
               </span><span class="p">{</span><span class="w">
-               </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"{[&lt;]&gt;OCC&lt;[&gt;]}O"</span><span class="p">,</span><span class="w">
-               </span><span class="s2">"atom_idx"</span><span class="w"> </span><span class="p">:[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">],</span><span class="w">
-               </span><span class="s2">"Mw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"{[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[OH:/8]"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"source"</span><span class="w"> </span><span class="p">:</span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Mw"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"unit"</span><span class="p">:</span><span class="s2">"kDa"</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"uncertainty"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span><span class="w">
                        </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="s2">"multiple samples from the same batch"</span><span class="p">,</span><span class="w">
-                       </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">},</span><span class="w">
-               </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">}</span><span class="w"> 
+                       </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">}],</span><span class="w">
+               </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">}]</span><span class="w"> 
               </span><span class="p">}</span><span class="w"> 
              </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -561,33 +540,41 @@ a string logging necessary information or message associated with the revision</
 <p>Each data object follows the following syntax</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"{[$]$CC$,$CC(C)$[$]}"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"atom_idx"</span><span class="w"> </span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"target"</span><span class="p">:</span><span class="s2">"{...}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="s2">"{...}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"unit"</span><span class="p">:</span><span class="s2">"kDa"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uncertainty"</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span><span class="w">
             </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="s2">"multiple samples from the same batch"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> 
+            </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GPC"</span><span class="w"> </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> 
            </span><span class="s2">"uncertainty"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> 
-           </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncertainty in GPC calibration"</span><span class="p">}</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"parameter1"</span><span class="p">:</span><span class="s2">"value1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description-text"</span><span class="p">}</span><span class="w">
+           </span><span class="s2">"uncertainty_src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uncertainty in GPC calibration"</span><span class="p">}]</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"parameter1"</span><span class="p">:</span><span class="s2">"value1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description-text"</span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>The &quot;target&quot; and &quot;atom_idx&quot; entries are always required, whereas other entries related to properties are included depending on availability.  Note that although only two properties (number average molecular weight and dispersity) are included in the example, in general, all relevant properties should be included. </p>
+<p>The &quot;target&quot; and &quot;source&quot; entries are always required, whereas other entries related to properties are included depending on availability.  Note that although only two properties (number average molecular weight and dispersity) are included in the example, in general, all relevant properties should be included. </p>
 </blockquote>
 
 <p>In the BigSMILES data format, the data associated with the molecular structures of the polymers are encapsulated within the &quot;data&quot; entry with an array of <strong><em>data objects</em></strong> in the following syntax</p>
 
 <p><code>&quot;data&quot; : [data_obj1, data_obj2, data_obj3,...]</code></p>
 
-<p>and placed within the major JSON object, as illustrated in the example. Each data object corresponds to a single segment of the polymer or a polymeric precursor related to the polymer of interest, and encapsulates the information on properties or parameters relevant to the characterization of the weights of each molecular state within the ensemble. The syntax for the data object is illustrated in the example panel.</p>
+<p>and placed within the major JSON object, as illustrated in the example. Each data object corresponds to a set of characterization data of the polymer of interest or a precursor related to the logged polymer. The data object encapsulates properties and parameters that are relevant to the determination of the distribution of different molecular states within the ensemble given by the line notation. The syntax for the data object is illustrated in the example panel.</p>
 
 <p>Each data object is consisted of the following three types of entries:</p>
 
 <ol>
-<li>indexing entries (the &quot;target&quot; and &quot;atom_idx&quot; entries) that specify the structure of the polymer segment or precursor on which the physicochemical measurements are actually performed, and how they are related to the polymer of interest</li>
+<li>indexing entries (the &quot;target&quot; and &quot;source&quot; entries) 
+
+<ul>
+<li>target:<br>
+the labelled BigSMILES string of the polymer segment or precursor on which the physicochemical measurements are actually performed</li>
+<li>source:<br>
+the labelled BigSMILES string of the original polymer (the one specified in the &quot;BigSMILES&quot; entry). </li>
+<li>source and target should be labelled consistently such that the corresponding atoms on the two BigSMILES strings have the identical index</li>
+</ul></li>
 <li>measurable properties that provide characterization of the chemical structure of the polymer, such as number average molecular weight, dispersity, ... etc.</li>
 <li>properties or parameters that provide information that could be used to infer the chemical structure of a polymer, but are model dependent and become meaningless outside of the context of a specific physicochemical model</li>
 </ol>
@@ -597,64 +584,26 @@ a string logging necessary information or message associated with the revision</
 <aside class="notice">Remember - The order of the entries do not matter!</aside>
 <h2 id='indexing-a-polymeric-segment'>Indexing a Polymeric Segment</h2>
 <blockquote>
-<p>For each data object, the &quot;target&quot; and &quot;atom_idx&quot; entries must be included</p>
+<p>For each data object, the &quot;target&quot; and &quot;source&quot; entries must be included</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">data_obj</span><span class="w"> </span><span class="err">=</span><span class="w"> 
 </span><span class="p">{</span><span class="w">   
-    </span><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{[&lt;]&gt;OCC&lt;[&gt;]}Br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"atom_idx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="kc">null</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>To illustrate the indexing scheme, consider the following examples.</p>
+<p>As detailed within the specification, any scheme that satisfy the requirements could be used to provide labelling of the target and source polymers. </p>
 
-<p>First, consider the a diblock copolymer formed via iodoacetyl sulfhydryl conjugation </p>
+<p>For instance, the following example describes a target polymer of amine functionalized polyethylene and a source polymer with ethyl end groups instead of the amine end:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"BigSMILES"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{[&gt;]&lt;OCC&gt;[&lt;]}NC(=O)CS{[$]$C(c1ccccc1)C$[$]}"</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[NH2:/8]"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"source"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"[CH3:/1][CH2:/2][CH2:/3][CH2:/4]{[$][$:/5.1/4][CH2:/5.1/3][CH2:/5.1/2][$:/5.1/1][$]}[CH2:/6][CH3:/7]"</span><span class="w">
 </span></code></pre>
-<blockquote>
-<p>To specify characterization on the PEG precursor, the following entries could be used</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"{[&gt;]&lt;OCC&gt;[&lt;]}NC(=O)CI"</span><span class="w">
-</span><span class="s2">"atom_idx"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="kc">null</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>for the polystyrene precursor, similar encoding applies</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"{[$]$CC(c1ccccc1)$[$]}S"</span><span class="w">
-</span><span class="s2">"atom_idx"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Next, consider a polycysteine grafted with iodoacetyl terminated PEG </p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"BigSMILES"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{[&gt;]&lt;NC(CS)C(=O)&gt;,&lt;NC(CSCC(=O)N{[&gt;]&lt;CCO&gt;[&lt;]})C(=O)&gt;[&lt;]}O"</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>To characterize the entire polymer, the BigSMILES string can be directly used in the target entry</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"{[&gt;]&lt;NC(CS)C(=O6)&gt;,&lt;NC(CSCC(=O)N14{[&gt;]&lt;CCO&gt;[&lt;]})C(=O)&gt;[&lt;]}O"</span><span class="w">
-</span><span class="s2">"atom_idx"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Characterization of the grafts would require the specification of iodoacetyl terminated PEGs</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"ICC(=O)N{[&gt;]&lt;CCO&gt;[&lt;]}"</span><span class="w">
-</span><span class="s2">"atom_idx"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="kc">null</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>If the backbone was characterized prior to grafting, the characterization for the polypeptide would require the following indexing</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"{[&gt;]&lt;NC(CS)C(=O6)&gt;[&lt;]}O"</span><span class="w">
-</span><span class="s2">"atom_idx"</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">18</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">19</span><span class="p">],</span><span class="mi">20</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Note that in this case some of the atoms on the precursor peptide polymer correspond to more than one atoms on the graft polymer, therefore the corresponding elements contain an array of multiple indices instead of one index.</p>
-</blockquote>
-
-<p>In each data object, the exact element or component of the polymer that the properties are associated with is given by the <strong><em>target</em></strong> and <strong><em>atom_idx</em></strong> entries. </p>
+<p>In each data object, the exact element or component of the polymer that the properties are associated with is given by the <code>target</code> and <code>source</code> entries. </p>
 
 <table><thead>
 <tr>
@@ -666,56 +615,32 @@ a string logging necessary information or message associated with the revision</
 <tr>
 <td>target</td>
 <td>string</td>
-<td>The BigSMILES string for the polymer/molecule that characterizations are actually performed on.</td>
+<td>The labelled BigSMILES string of the polymer segment or precursor on which the physicochemical measurements are actually performed</td>
 </tr>
 <tr>
-<td>atom_idx</td>
+<td>source</td>
 <td>array</td>
-<td>The map between the atoms on the target polymer and the polymer described by the overall data file.</td>
+<td>The labelled BigSMILES string of the original polymer (the one specified in the &quot;BigSMILES&quot; entry).</td>
 </tr>
 </tbody></table>
 
 <p>In principle, the BigSMILES data format is designed to store quantifications obtained directly from experimental measurements. The &quot;target&quot; entry is designed to contain the BigSMILES string of the exact polymer molecule that the measurements are performed on. </p>
 
-<p>In the case that all relevant characterizations are performed on the polymer of interest (the polymer with which the data file is associated), the target entry should be identical to the &quot;BigSMILES&quot; entry in the metadata section.</p>
-
 <p>However, for polymers, it is common that characterizations are performed on precursors or polymers that are not exactly identical to the actual polymer of interest. This is especially common for polymers that undergo post-characterization functionalization, or polymers segments that have been grafted or tethered to other polymer segments. In these cases, the target polymer would not be the same as the polymer of interest, and may contain parts or atoms that could not necessarily be found in the polymer of interest.</p>
 
 <aside class="notice">In this case, the the BigSMILES string within the target field would not be substrings of the original BigSMILES string.</aside>
 
-<p>Meanwhile, to unambiguously specify which of the atom(s) on the polymer of interest do each atom on the target polymer correspond to, a map between the atoms on the target polymer and the atoms on the polymer of interest must be provided. This is encapsulated within the &quot;atom_idx&quot; entry, which is an array that has the same number of elements as the number of atoms (number of explicit atom symbols) in the target string. </p>
+<p>To unambiguously specify which of the atom(s) on the polymer of interest do each atom on the target polymer correspond to, a map between the atoms on the target polymer and the atoms on the polymer of interest (the source polymer) must be provided. The mapping is provided by labelling the BigSMILES string of the target polymer and the BigSMILES string of the original polymer. </p>
 
-<p>Within the atom_idx array, the *n*th element corresponds to the *n*th atom within the target string. (The labelling goes from left to right, with the leftmost atom being the 1st atom, the next one the 2nd, and so on.) The element within the array contains the numeric indices of the atom(s) (labelled in the same way) in the original polymer of interest that the *n*th atom in the target polymer corresponds to. </p>
+<p>For the purpose of the data standard, any labelling scheme could be used as long as the labelling scheme satisfies the following criteria:</p>
 
-<p>For example, consider a file that were to describe an azide-functionalized poly(ethylene glycol). Its BigSMILES string reads</p>
+<ol>
+<li>For a BigSMILES string, each atom and bonding descriptor should be assigned an unique string label. </li>
+<li>For any atom on the target polymer that has correspondence on the source polymer, the label for the atom on target should be identical to the label of the corresponding atom on source </li>
+<li>For any atom on the target polymer that does not have a corresponding atom on the source polymer, the label for such atom should not match any label on the source polymer</li>
+</ol>
 
-<p><code>&quot;BigSMILES&quot; : &quot;{[&lt;]&gt;OCC&lt;[&gt;]}N=[N+]=[N-]&quot;</code></p>
-
-<p>The numeric label for each atom would be: (leftmost) O = 1, (left) C = 2, (right) C = 3 and 4, 5, 6 for the three nitrogen atoms.</p>
-
-<p>Now, consider the scenario where the characterization of the PEG were all performed on the precursor bromide terminated PEG without end functionalization, then the target field would be</p>
-
-<p><code>&quot;target&quot; : &quot;{[&lt;]&gt;OCC&lt;[&gt;]}Br&quot;</code></p>
-
-<p>In this case, the first oxygen atom corresponds to the first atom in the polymer of interest; therefore, the first element for the atom_idx array would be 1. Likewise, the second and third elements are 2 and 3 respectively. The last element, which corresponds to the bromine atom, do not correspond to any of the atom found within the azide functionalized PEG. Therefore, the element would be <em>null</em>. Therefore, the atom_idx array for this precursor reads</p>
-
-<p><code>&quot;atom_idx&quot;: [1,2,3,null]</code></p>
-
-<p>If the target string would be written in the reversed order</p>
-
-<p><code>&quot;target&quot; : &quot;Br{[&lt;]&gt;CCO&lt;[&gt;]}&quot;</code></p>
-
-<p>then the array would be changed accordingly to</p>
-
-<p><code>&quot;atom_idx&quot;: [null,3,2,1]</code></p>
-
-<p>In some cases, if an atom on a target polymer corresponds to more than one atom, the corresponding element in the array should be replaced by an array with the indices of all the relevant atoms.</p>
-
-<p><code>&quot;atom_idx&quot;: [...,1,null,2,[3,5],4,...]</code></p>
-
-<p>This can often be found on polymers that undergo post-characterization functionalization, as illustrated in the second example.</p>
-
-<p>For more complex examples, please refer to the examples panel.</p>
+<p>For BigSMILES users, a tool with graphical interface that could consistently generate valid labels can be found <a href="https://olsenlabmit.github.io/BigSMILES_builder/">here</a>.</p>
 
 <aside class="warning">The target and atom_idx entries are required for every data object.</aside>
 <h2 id='measurable-properties'>Measurable Properties</h2>
@@ -724,18 +649,20 @@ a string logging necessary information or message associated with the revision</
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">data_obj</span><span class="w"> </span><span class="err">=</span><span class="w"> 
 </span><span class="p">{</span><span class="w">   
-    </span><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{[&lt;]&gt;OCC&lt;[&gt;]}Br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"atom_idx"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="kc">null</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">},</span><span class="w">
-    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"target"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Mn"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="mf">4.4</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"D"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="p">[{</span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"kinetics"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="err">...</span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>For each property, please refer to corresponding sections for detailed syntax.</p>
 </blockquote>
 
-<p>Within the data object, each measured property is stored within a separate entry. For each property, the parameters required within the corresponding JSON object is slightly different. Please click on the name of the property in the table to view the detailed syntax. </p>
+<p>Characterization on measurable properties are logged under the corresponding array within the data object. For each measurable property, the set of required and optional fields are slightly different. Please click on the name of the property in the table to view the exact syntax.</p>
+
+<aside class="warning">Currently, properties such as tacticity, head-to-tail configuration and composition are not supported. These are actively under development and should be available soon.</aside>
 
 <table><thead>
 <tr>
@@ -788,38 +715,6 @@ a string logging necessary information or message associated with the revision</
 <td>The GPC measurement data for polymer molecular weight distribution</td>
 </tr>
 <tr>
-<td><a href="#comp">comp</a></td>
-<td>The composition of a polymer characterized by the ratio of different repeat units.</td>
-</tr>
-<tr>
-<td><a href="#comp_diad">comp_diad</a></td>
-<td>The composition of a polymer characterized by the ratio of different repeat unit diads.</td>
-</tr>
-<tr>
-<td><a href="#comp_higher">comp_higher</a></td>
-<td>The composition of a polymer characterized by the ratio of different repeat unit multi-ads.</td>
-</tr>
-<tr>
-<td><a href="#tacticity_diad">tacticity_diad</a></td>
-<td>The tacticity of a polymeric segment described by diads</td>
-</tr>
-<tr>
-<td><a href="#tacticity_triad">tacticity_triad</a></td>
-<td>The tacticity of a polymeric segment described by triads</td>
-</tr>
-<tr>
-<td><a href="#tacticity_higher">tacticity_higher</a></td>
-<td>The tacticity of a polymeric segment described by higher order multi-ads</td>
-</tr>
-<tr>
-<td><a href="#msl">MSL</a></td>
-<td>The average length of <em>meso</em> sequences within the polymer molecule</td>
-</tr>
-<tr>
-<td><a href="#head_tail_config">head_tail_config</a></td>
-<td>The head/tail configuration of asymmetric repeating units within a polymeric segment described by triads.</td>
-</tr>
-<tr>
 <td><a href="#p">p</a></td>
 <td>The extent of reaction</td>
 </tr>
@@ -827,7 +722,7 @@ a string logging necessary information or message associated with the revision</
 
 <aside class="warning">BigSMILES data format is designed specifically for describing the structural features of polymers. Therefore, properties, such as the viscosity, that are not directly relevant to the structure should <b>NOT</b> be included within the data objects.</aside>
 
-<aside class="warning">Unlike the metadata list, incorporating entries not contained within the supported properties list is strongly discouraged to ensure the maximal compatibility. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
+<aside class="warning">Unlike the metadata list, to ensure maximal compatibility, incorporating entries not contained within the supported properties list is strongly discouraged. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
 <h2 id='model-dependent-parameters'>Model Dependent Parameters</h2>
 <blockquote>
 <p>The kinetic object can contain any user defined parameters that are relevant to the specific kinetic model. The only requirement is that the object contain either a description that details the exact definitions of each parameter and how they work with a specific kinetic model, or a reference to another document that contains such information.</p>
@@ -846,7 +741,27 @@ a string logging necessary information or message associated with the revision</
 <p><code>&quot;kinetics&quot;: kinetics object</code></p>
 
 <p>However, since each kinetic model is highly specific and often vastly different from other models both in terms of the nature and number of parameters required, standardization for the <strong><em>kinetics object</em></strong> is currently not supported, and the user is free to define and include any parameter as deemed necessary. The only strict requirement is that the kinetics object must contain an entry that either clearly specifies the exact definitions of each parameter and how they work with a specific kinetic model to inform the molecular structures, or provide a reference to another document that details such information.</p>
-<h1 id='list-of-supported-data-entries'>List of Supported Data Entries</h1><h2 id='d'>D</h2>
+<h1 id='list-of-supported-data-entries'>List of Supported Data Entries</h1><h2 id='common-fields'>Common fields</h2>
+<p>For every property, the following fields are always included. Therefore, they will not be repeated in later sections.</p>
+
+<p><strong>Object Fields</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>src</td>
+<td>string</td>
+<td>optional</td>
+<td>the source of the data within the entry</td>
+</tr>
+</tbody></table>
+<h2 id='d'>D</h2>
 <blockquote>
 <p>Syntax and usage</p>
 </blockquote>
@@ -1478,465 +1393,6 @@ a string logging necessary information or message associated with the revision</
 <li>s (seconds)</li>
 <li>m (minutes)</li>
 </ul>
-<h2 id='comp'>comp</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"comp"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">,[</span><span class="s2">"C"</span><span class="p">,</span><span class="s2">"D"</span><span class="p">]],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"some method"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The composition of a polymer characterized by the ratio of different repeat units.</p>
-
-<p><strong>Object Fields</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different repeating unit sequences. For stochastic object with <em>n</em> repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with three repeat units should be described by the array [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;D&quot;]<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
-<h2 id='comp_diad'>comp_diad</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"comp_diad"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AA"</span><span class="p">,</span><span class="s2">"AB"</span><span class="p">,</span><span class="s2">"BB"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"some method"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The composition of a polymer characterized by the ratio of different diads of repeat units.</p>
-
-<p><strong>Object Fields</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different repeating unit diad sequences. For stochastic object with <em>n</em> repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with three repeat units should be described by the array [&quot;AA&quot;, &quot;AB&quot;, &quot;AC&quot;, ...] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [[&quot;AA&quot;,&quot;AB&quot;],&quot;BB&quot;]<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
-<h2 id='comp_higher'>comp_higher</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"comp_higher_3"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AAA"</span><span class="p">,</span><span class="s2">"AAB"</span><span class="p">,</span><span class="s2">"ABB"</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"some method"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The composition of a polymer characterized by the ratio of different multi-ads of repeat units.</p>
-
-<p>The name of the property follows the syntax</p>
-
-<p><code>&quot;comp_higher_n&quot; : {...}</code></p>
-
-<p>where <em>n</em> is an integer larger than 2 that specifies the exact order of the multi-ads.</p>
-
-<p><strong>Object Fields</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different repeating unit multi-ad sequences. For stochastic object with <em>n</em> repeat units, the different repeat units (from the first to the last one) are represented by the symbols A,B,C,...,M,N. <br />For instance, repeat units for a polymer with two repeat units and n=3 should be described by the array [&quot;AAA&quot;, &quot;AAB&quot;, ...] (or any other permutation.) <br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
-<h2 id='tacticity_diad'>tacticity_diad</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"tacticity_diad"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"r"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"m"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple samples from the same batch"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"some method"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The tacticity of a polymeric segment described by diads  </p>
-
-<p><strong>Object Fields</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>r</td>
-<td>number</td>
-<td>required</td>
-<td>the ratio of racemic diads</td>
-</tr>
-<tr>
-<td>m</td>
-<td>number</td>
-<td>required</td>
-<td>the ratio of racemic diads</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>number</td>
-<td>optional</td>
-<td>the uncertainty of the provided value.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The two ratios should sum up to one.</aside>
-<h2 id='tacticity_triad'>tacticity_triad</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"tacticity_triad"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"rr"</span><span class="p">,</span><span class="s2">"mm"</span><span class="p">],</span><span class="s2">"rm"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.7</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source,
-    "</span><span class="err">method</span><span class="s2">" : "</span><span class="err">some</span><span class="w"> </span><span class="err">method</span><span class="s2">"
-}
-</span></code></pre>
-<p>The tacticity of a polymeric segment described by triads  </p>
-
-<p><strong>Object Fields</strong>**</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different triads. permitted entries include &quot;rm&quot; (heterotactic triads), &quot;mm&quot; (isotactic triads) and &quot;rr&quot; (syndiotactic triads)<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [[&quot;rr&quot;,&quot;mm&quot;],&quot;rm&quot;]<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
-<h2 id='tacticity_higher'>tacticity_higher</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"tacticity_higher_4"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"rrr"</span><span class="p">,</span><span class="s2">"mrm"</span><span class="p">,</span><span class="s2">"rrm"</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="err">...</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source,
-    "</span><span class="err">method</span><span class="s2">" : "</span><span class="err">some</span><span class="w"> </span><span class="err">method</span><span class="s2">"
-}
-</span></code></pre>
-<p>The tacticity of a polymeric segment described by multi-ads</p>
-
-<p>The name of the property follows the syntax</p>
-
-<p><code>&quot;tacticity_higher_n&quot; : {...}</code></p>
-
-<p>where <em>n</em> is an integer larger than 3 that specifies the exact order of the multi-ads.</p>
-
-<p><strong>Object Fields</strong>**</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different multi-ads. For instance, pentads include elements such as &quot;mmmm&quot;,&quot;mrrm&quot;, ... etc.<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
-<h2 id='msl'>MSL</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"MSL"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"method"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"some method"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>The average length of <em>meso</em> sequences within the polymer molecule  </p>
-
-<p><strong>Object Fields</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>value</td>
-<td>number</td>
-<td>required</td>
-<td>the MSL value</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided ratios.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-<h2 id='head_tail_config'>head_tail_config</h2>
-<blockquote>
-<p>Syntax and usage</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"head_tail_config"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"seq"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="s2">"tt"</span><span class="p">,</span><span class="s2">"hh"</span><span class="p">],</span><span class="s2">"ht"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ratio"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.9</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"uncertainty_src"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"error source,
-    "</span><span class="err">method</span><span class="s2">" : "</span><span class="err">some</span><span class="w"> </span><span class="err">method</span><span class="s2">"
-}
-</span></code></pre>
-<p>The head/tail configuration of asymmetric repeating units within a polymeric segment described by diads</p>
-
-<p><strong>Object Fields</strong>**</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>seq</td>
-<td>array</td>
-<td>required</td>
-<td>the array containing different head/tail placements. permitted entries include &quot;ht&quot; (head-to-tail), &quot;hh&quot; (head-to-head) and &quot;tt&quot; (tail-to-tail)<br />If characterization are determined in terms of the union of multiple units, the union can be specified by lumping multiple units into an array element, e.g. [[&quot;tt&quot;,&quot;hh&quot;],&quot;ht&quot;]<br />The characterization for missing repeat units is assumed to be unknown.</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>array of number</td>
-<td>required</td>
-<td>the ratio of different elements in the seq array.</td>
-</tr>
-<tr>
-<td>uncertainty</td>
-<td>array of number</td>
-<td>optional</td>
-<td>the uncertainty of the provided values.</td>
-</tr>
-<tr>
-<td>uncertainty_src</td>
-<td>string</td>
-<td>optional</td>
-<td>an explanation of what the provided uncertainty reflect and how the number/estimation is obtained</td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>optional</td>
-<td>how the value is measured or obtained</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">The ratios should sum up to one.</aside>
 <h2 id='p'>p</h2>
 <blockquote>
 <p>Syntax and usage</p>

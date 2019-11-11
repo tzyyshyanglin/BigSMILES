@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - plaintext: BigSMILES Examples
 
 toc_footers:
-  - <a href='#'>BigSMILES Project</a>
+  - <a href='index.html'>BigSMILES Project</a>
   - <a href='line_notation.html'>BigSMILES Line Notation</a>
   - <a href='DataFormat.html'>BigSMILES Data Format</a>
   - <a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a>
@@ -28,7 +28,7 @@ BigSMILES is a structurally based line notation based on the highly successful S
 
 <aside class="notice">
 Please note that the BigSMILES line notation continually revised to provide additional features and important bug fixes. This page hosts the latest version of BigSMILES, which may differ from the syntax discussed in the <a href="https://pubs.acs.org/doi/10.1021/acscentsci.9b00476">original paper</a>. <br/>
-The current version is v1.1. Please check the <a href="#">version history</a> for the log of detailed changes.
+The current version is v1.1. Please check the <a href="#version-history">version history</a> for the detailed log of changes.
 </aside>
 
 
@@ -830,3 +830,40 @@ although there is no explicit reference to any cycle, since a ring polymer is al
 ### Random Cycles
 
 For stochastic objects representing branching polymers, products with random cyclization are also included within the ensemble of possible structures. This looping structure is currently not explicitly presented within the BigSMILES representation, because each cycle requires indexing in the SMILES language, and it is impossible to fully track such random cyclization explicitly. Rather, the possibility of this type of random macrocycle formation is implicitly included through expressing the rules of connectivity that allow for the enumeration of these macrocycles.
+
+
+
+# Version History
+
+## version-1.1
+
+### Date
+
+November 11, 2019
+
+### Major Updates
+
+Made changes to the bonding descriptor syntax:
+
+1. Changed bonding descriptor from `descriptor_type + bond_type + descriptor_id` to `'[' + descriptor_type +  descriptor_id  +  ']'` and moves bonding symbol out of the descriptors
+   * Made descriptors completely identical to atoms in terms of syntax
+   * Resolve incompatibility with SMILES quadruple bonds `$`
+   * Resolve potential conflict with reaction SMILES `>`
+2. Changed ladder bonding descriptor syntax: added `group_id` 
+   * Original syntax may lead to ambiguous semantics
+
+3. Changed terminal bonding descriptor syntax
+
+   * To eliminate ambiguity, the terminal bonding descriptors are always required, even if it is empty 
+
+     
+
+## version-1.0
+
+### Date
+
+September 12, 2019
+
+### Major Update
+
+BigSMILES line notation published on [ACS Central Science](https://pubs.acs.org/doi/10.1021/acscentsci.9b00476)
