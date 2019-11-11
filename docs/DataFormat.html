@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-76490add.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="json">json</a>
+              <a href="#" data-language-name="json">BigSMILES Data</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -323,8 +323,9 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='#'>BigSMILES Project</a></li>
-            <li><a href='#'>BigSMILES Line Notation</a></li>
-            <li><a href='#'>GitHub</a></li>
+            <li><a href='line_notation.html'>BigSMILES Line Notation</a></li>
+            <li><a href='DataFormat.html'>BigSMILES Data Format</a></li>
+            <li><a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -332,7 +333,12 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>The <a href="./BigSMILES_LineNotation.md">BigSMILES line notation</a> provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. In this document, a standard data format that accompanies the BigSMILES line notation is provided.</p>
+<p>The <a href="./BigSMILES_LineNotation.md">BigSMILES line notation</a> provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. </p>
+
+<p>This document provides the official documentation of the BigSMILES data format, a data standard that accompanies the BigSMILES line notation. </p>
+
+<aside class="success">This page is mainly meant for developers. For BigSMILES users that are looking to generate BigSMILES data files, please go to the <a href="https://olsenlabmit.github.io/BigSMILES_DataForm/">BigSMILES Data Form</a> for a more user friendly interface.
+</aside>
 <h1 id='the-bigsmiles-data-format'>The BigSMILES Data Format</h1>
 <blockquote>
 <p>A BigSMILES data file stores data in the following format</p>
@@ -1983,7 +1989,7 @@ a string logging necessary information or message associated with the revision</
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="json">json</a>
+                <a href="#" data-language-name="json">BigSMILES Data</a>
           </div>
       </div>
     </div>

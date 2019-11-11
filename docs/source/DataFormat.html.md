@@ -2,12 +2,13 @@
 title: BigSMILES Data Format
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - json
+  - json: BigSMILES Data
 
 toc_footers:
   - <a href='#'>BigSMILES Project</a>
-  - <a href='#'>BigSMILES Line Notation</a>
-  - <a href='#'>GitHub</a>
+  - <a href='line_notation.html'>BigSMILES Line Notation</a>
+  - <a href='DataFormat.html'>BigSMILES Data Format</a>
+  - <a href='https://github.com/olsenlabmit/bigSMILES'>GitHub</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -17,7 +18,12 @@ search: true
 
 # Introduction
 
-The [BigSMILES line notation](./BigSMILES_LineNotation.md) provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. In this document, a standard data format that accompanies the BigSMILES line notation is provided.
+The [BigSMILES line notation](./BigSMILES_LineNotation.md) provides a compact representation scheme in plain text for expressing the composition and connectivity of polymers and the chemical structures of their constituent repeating units. However, while the text representations provide comprehensive descriptions on how distinct repeating units interconnect to form macromolecular fragments, each BigSMILES representation specifies only the unweighted ensemble of molecular states (individual molecular connectivity realizations) permissible by the connectivity rules defined within the string, and the bare BigSMILES strings do not explicitly contain any information on the relative weight or probability of each molecular state. Therefore, to fully specify a polymeric system, additional quantifications on the distributional properties of the polymer, such as the degree of polymerization or the dispersity, must be provided in addition to the BigSMILES string. 
+
+This document provides the official documentation of the BigSMILES data format, a data standard that accompanies the BigSMILES line notation. 
+
+<aside class="success">This page is mainly meant for developers. For BigSMILES users that are looking to generate BigSMILES data files, please go to the <a href="https://olsenlabmit.github.io/BigSMILES_DataForm/">BigSMILES Data Form</a> for a more user friendly interface.
+</aside>
 
 
 
@@ -83,9 +89,6 @@ An illustrative BigSMILES data JSON file example is shown in the code block. In 
 
 <aside class="success">Remember — Each BigSMILES JSON file contains data and characterization for exactly one polymer. Multiple polymers that appear within one literature should be encoded within separate files. </aside>
 
-
-
-
 In BigSMILES data format, relevant data is stored within different entries according to their nature. On the highest level, data are classified into two major different categories:
 
 - **metadata** associated with the data file itself, such as the document identifier, the source of the data, or other information relevant to the maintenance of the data file itself, and
@@ -94,9 +97,6 @@ In BigSMILES data format, relevant data is stored within different entries accor
 where the name-value pairs of the metadata, such as the BigSMILES string of the polymer, the author, the document identifier, etc., are directly stored on the top level of the JSON file (more details on the definition of some standard metadata entries will be provided shortly), and the physicochemical properties relevant to the characterization of the chemical structure are encapsulated and compiled within the "data" entry. 
 
 <aside class="notice">The order of which each individual entry appears does not matter; as long as each entry is denoted by a comma-delimited list of name (specified by a string within quotation marks) and value pairs separated by colons, they are considered equally valid.</aside>
-
-
-
 
 # Metadata 
 
@@ -125,9 +125,6 @@ A list of useful metadata entries are provided in this section. However, it shou
 | [log](#log)             | array  | An array that contains the revision log of the document.     |
 
 <aside class="notice">It is strongly recommended that these provided entries are incorporated within every data file, because they provide basic information that allows for verification of the data entries for each created polymer, as well as serving as digital trails for document curation purposes.</aside>
-
-
-
 ## BigSMILES
 
 > Syntax and usage
@@ -231,9 +228,6 @@ array of *log object*
 <aside class="notice">Using names as author identifiers are strongly discouraged, because they are often not unique and difficult to track. Unique identifiers such as ORCID are preferred.</aside>
 
 
-
-
-
 # Data and the Data Object
 
 > The data objects are embedded within the main JSON object
@@ -287,7 +281,6 @@ Each data object is consisted of the following three types of entries:
 The entries in the first two categories are directly listed within the data object (analogous to the metadata entries in the main JSON object), whereas the parameters that are model dependent are encapsulated within a "kinetics" entry.  
 
 <aside class="notice">Remember - The order of the entries do not matter!</aside>
-
 ## Indexing a Polymeric Segment
 
 > For each data object, the "target" and "atom_idx" entries must be included
@@ -372,8 +365,6 @@ In the case that all relevant characterizations are performed on the polymer of 
 However, for polymers, it is common that characterizations are performed on precursors or polymers that are not exactly identical to the actual polymer of interest. This is especially common for polymers that undergo post-characterization functionalization, or polymers segments that have been grafted or tethered to other polymer segments. In these cases, the target polymer would not be the same as the polymer of interest, and may contain parts or atoms that could not necessarily be found in the polymer of interest.
 
 <aside class="notice">In this case, the the BigSMILES string within the target field would not be substrings of the original BigSMILES string.</aside>
-
-
 Meanwhile, to unambiguously specify which of the atom(s) on the polymer of interest do each atom on the target polymer correspond to, a map between the atoms on the target polymer and the atoms on the polymer of interest must be provided. This is encapsulated within the "atom_idx" entry, which is an array that has the same number of elements as the number of atoms (number of explicit atom symbols) in the target string. 
 
 Within the atom_idx array, the *n*th element corresponds to the *n*th atom within the target string. (The labelling goes from left to right, with the leftmost atom being the 1st atom, the next one the 2nd, and so on.) The element within the array contains the numeric indices of the atom(s) (labelled in the same way) in the original polymer of interest that the *n*th atom in the target polymer corresponds to. 
@@ -415,9 +406,6 @@ This can often be found on polymers that undergo post-characterization functiona
 For more complex examples, please refer to the examples panel.
 
 <aside class="warning">The target and atom_idx entries are required for every data object.</aside>
-
-
-
 
 ## Measurable Properties
 
@@ -464,13 +452,7 @@ Within the data object, each measured property is stored within a separate entry
 | [p](#p)                               | The extent of reaction                                       |
 
 <aside class="warning">BigSMILES data format is designed specifically for describing the structural features of polymers. Therefore, properties, such as the viscosity, that are not directly relevant to the structure should <b>NOT</b> be included within the data objects.</aside>
-
-
-
 <aside class="warning">Unlike the metadata list, incorporating entries not contained within the supported properties list is strongly discouraged to ensure the maximal compatibility. If there are missing fields that you consider necessary, please submit a modification or update request, and we will incorporate the new entry into the standard list as soon as possible.</aside>
-
-
-
 ## Model Dependent Parameters
 
 > The kinetic object can contain any user defined parameters that are relevant to the specific kinetic model. The only requirement is that the object contain either a description that details the exact definitions of each parameter and how they work with a specific kinetic model, or a reference to another document that contains such information.
@@ -650,9 +632,6 @@ Number average degree of polymerization of the selected polymeric segment. If mu
 | method          | string | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-
-
-
 ## DPw
 
 > Syntax and usage
@@ -678,9 +657,6 @@ Weight average degree of polymerization of the selected polymeric segment. If mu
 | method          | string | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-
-
-
 ## DPz
 
 > Syntax and usage
@@ -706,9 +682,6 @@ Z average degree of polymerization of the selected polymeric segment. If multipl
 | method          | string | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The end groups and everything not contained within stochastic objects are ignored.</aside>
-
-
-
 ## skewness
 
 > Syntax and usage
@@ -862,9 +835,6 @@ The composition of a polymer characterized by the ratio of different repeat unit
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## comp_diad
 
 > Syntax and usage
@@ -892,9 +862,6 @@ The composition of a polymer characterized by the ratio of different diads of re
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## comp_higher
 
 > Syntax and usage
@@ -928,9 +895,6 @@ where *n* is an integer larger than 2 that specifies the exact order of the mult
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## tacticity_diad
 
 > Syntax and usage
@@ -958,9 +922,6 @@ The tacticity of a polymeric segment described by diads
 | method          | string | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The two ratios should sum up to one.</aside>
-
-
-
 ## tacticity_triad
 
 > Syntax and usage
@@ -988,9 +949,6 @@ The tacticity of a polymeric segment described by triads
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## tacticity_higher
 
 > Syntax and usage
@@ -1024,9 +982,6 @@ where *n* is an integer larger than 3 that specifies the exact order of the mult
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## MSL
 
 > Syntax and usage
@@ -1080,9 +1035,6 @@ The head/tail configuration of asymmetric repeating units within a polymeric seg
 | method          | string          | optional | how the value is measured or obtained                        |
 
 <aside class="notice">The ratios should sum up to one.</aside>
-
-
-
 ## p
 
 > Syntax and usage
